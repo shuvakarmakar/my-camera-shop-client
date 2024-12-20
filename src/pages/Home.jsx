@@ -1,7 +1,15 @@
+import Banner from "../components/Home/Banner";
+import FAQs from "../components/Home/FAQS";
+import FeaturedProducts from "../components/Home/FeaturedProducts";
+import Testimonials from "../components/Home/Testimonials";
+
 const Home = () => {
     return (
         <div>
-            <h1>This is Homepage</h1>
+            <Banner></Banner>
+            <FeaturedProducts></FeaturedProducts>
+            <Testimonials></Testimonials>
+            <FAQs></FAQs>
         </div>
     );
 };
