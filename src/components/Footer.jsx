@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="text-center flex items-center space-x-2">
                     <FaPlaneDeparture className="text-white text-xl" />
                     <p className="text-white font-semibold">
-                        Copyright © 2024 - All rights reserved by Jatra Bondhu Tours & Travels
+                        Copyright © 2024 - All rights reserved by My Camera Shop
                     </p>
                 </div>
             </footer>
