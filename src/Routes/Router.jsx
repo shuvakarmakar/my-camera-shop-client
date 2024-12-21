@@ -17,6 +17,7 @@ import Wishlist from "../pages/Dashboard/Buyer/Wishlist";
 import AdminRoutes from "./AdminRoutes";
 import SellerRoute from "./SellerRoute";
 import BuyerRoute from "./BuyerRoute";
+import Products from "../pages/Products";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs></AboutUs>
+      },
+      {
+        path: "products",
+        element: <Products></Products>
       },
       {
         path: "contact-us",
