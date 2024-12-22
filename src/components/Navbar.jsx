@@ -24,7 +24,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo */}
-                <NavLink className="btn btn-ghost text-white text-3xl font-bold hover:text-blue-200 transition-colors duration-300">
+                <NavLink className="btn btn-ghost text-white text-sm lg:text-3xl font-bold hover:text-blue-200 transition-colors duration-300">
                     Camera Shop
                 </NavLink>
             </div>
@@ -53,14 +53,14 @@ const Navbar = () => {
                     <UserDropdown />
                 </div>
             ) : (
-                <div className="navbar-end flex items-center gap-6">
+                <div className="navbar-end flex items-center gap-3">
                     <Link to="/login">
                         <button className="btn btn-outline text-white border-white hover:bg-white hover:text-blue-600 transition-all duration-300 px-6 py-2 rounded-full">
                             Login
                         </button>
                     </Link>
                     <Link to="/register">
-                        <button className="btn bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300 px-6 py-2 rounded-full">
+                        <button className="btn bg-blue-500  text-white hover:bg-blue-600 transition-all duration-300   rounded-full">
                             Register
                         </button>
                     </Link>

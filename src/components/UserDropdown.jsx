@@ -5,6 +5,7 @@ import useUserData from "../hook/useUserData";
 const UserDropdown = () => {
     const { user, logout } = useAuth();
     const userData = useUserData();
+    // console.log(userData);
 
     const handleLogout = () => {
         logout();
@@ -16,7 +17,7 @@ const UserDropdown = () => {
                 <div tabIndex={0} role="button">
                     <div className="avatar">
                         <div className="w-10 rounded-full">
-                            <img src={`${user?.photoURL || "/user.png"}`} alt="User Avatar" />
+                            <img src={`${userData.profileImage || "/user.png"}`} alt="User Avatar" />
                         </div>
                         {/* Show badge only if the user role is "buyer" */}
                         {userData?.role === "buyer" && (
