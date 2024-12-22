@@ -68,7 +68,7 @@ const Sidebar = () => {
     const routes = getRoutes();
 
     return (
-        <div className="bg-gray-200 border-r-2 border-black min-h-screen px-8 py-16">
+        <div className="bg-gray-200 border-r-2 border-black h-full px-8 py-16">
             <h1 className="text-2xl font-bold mb-8">Camera Shop</h1>
             <ul className="flex flex-col gap-2">
                 {/* Overview */}

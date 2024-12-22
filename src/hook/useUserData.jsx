@@ -9,7 +9,7 @@ const useUserData = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             const res = await axios.get(`http://localhost:3000/user/${user.email}`);
-            console.log(res);
+            // console.log(res);
             SetUserData(res.data)
         }
         if (user?.email && !loading) {
