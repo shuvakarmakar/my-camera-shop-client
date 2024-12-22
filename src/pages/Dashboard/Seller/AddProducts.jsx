@@ -38,7 +38,7 @@ const AddProducts = () => {
         };
         const token = localStorage.getItem("access-token");
 
-        axios.post("http://localhost:3000/add-products", product, {
+        axios.post("https://my-camera-shop-server.vercel.app/add-products", product, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

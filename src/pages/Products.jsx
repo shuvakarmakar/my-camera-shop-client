@@ -23,7 +23,7 @@ const Products = () => {
         setLoading(true);
         const fetch = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/all-products?title=${search}&page=${page}&limit=9&sort=${sort}&brand=${brand}&category=${category}`);
+                const response = await axios.get(`https://my-camera-shop-server.vercel.app/all-products?title=${search}&page=${page}&limit=9&sort=${sort}&brand=${brand}&category=${category}`);
                 // console.log(response.data); // Log the response to inspect
                 // Set the state with the products, brands, and categories
                 setAllproducts(response.data.products || []);  // Use products from response

@@ -24,7 +24,7 @@ const Register = () => {
 
         createUser(data.email, data.password)
             .then(() => {
-                axios.post("http://localhost:3000/users", userData).then(res => {
+                axios.post("https://my-camera-shop-server.vercel.app/users", userData).then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {
                         Swal.fire({

@@ -13,7 +13,7 @@ const ManageUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('http://localhost:3000/users', {
+                const response = await fetch('https://my-camera-shop-server.vercel.app/users', {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const ManageUsers = () => {
         );
 
         // API Call
-        const response = await fetch(`http://localhost:3000/users/${userId}`, {
+        const response = await fetch(`https://my-camera-shop-server.vercel.app/users/${userId}`, {
             method: 'PATCH',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ const ManageUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Proceed with delete if confirmed
-                fetch(`http://localhost:3000/users/${userId}`, {
+                fetch(`https://my-camera-shop-server.vercel.app/users/${userId}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${token}`,

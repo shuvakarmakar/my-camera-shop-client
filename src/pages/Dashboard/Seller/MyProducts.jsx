@@ -21,7 +21,7 @@ const MyProducts = () => {
         const fetchProducts = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('http://localhost:3000/seller-products', {
+                const response = await axios.get('https://my-camera-shop-server.vercel.app/seller-products', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -74,7 +74,7 @@ const MyProducts = () => {
         }
 
         try {
-            const response = await axios.put(`http://localhost:3000/edit-product/${editProduct._id}`, updatedProduct, {
+            const response = await axios.put(`https://my-camera-shop-server.vercel.app/edit-product/${editProduct._id}`, updatedProduct, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -103,7 +103,7 @@ const MyProducts = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.delete(`http://localhost:3000/delete-product/${productId}`, {
+                    const response = await axios.delete(`https://my-camera-shop-server.vercel.app/delete-product/${productId}`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },

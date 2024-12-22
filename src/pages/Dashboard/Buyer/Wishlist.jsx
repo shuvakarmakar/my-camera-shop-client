@@ -12,7 +12,7 @@ const Wishlist = () => {
 
     useEffect(() => {
         const fetchWishlist = async () => {
-            await axios.get(`http://localhost:3000/wishlist/${userData._id}`, {
+            await axios.get(`https://my-camera-shop-server.vercel.app/wishlist/${userData._id}`, {
                 headers: {
                     authorization: `Bearer ${token}`,
                 },

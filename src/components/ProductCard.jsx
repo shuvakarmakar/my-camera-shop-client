@@ -10,7 +10,7 @@ const ProductCard = ({ product, isInWishlist, setLatestData }) => {
     const userEmail = userData.email;
 
     const handleWishlist = async () => {
-        await axios.patch("http://localhost:3000/wishlist/add", {
+        await axios.patch("https://my-camera-shop-server.vercel.app/wishlist/add", {
             userEmail: userEmail,
             productId: product._id
         }).then((res) => {
@@ -27,7 +27,7 @@ const ProductCard = ({ product, isInWishlist, setLatestData }) => {
         )
     }
     const handleRemoveFromWishlist = async () => {
-        await axios.patch("http://localhost:3000/wishlist/remove", {
+        await axios.patch("https://my-camera-shop-server.vercel.app/wishlist/remove", {
             userEmail: userEmail,
             productId: product._id
         }).then((res) => {

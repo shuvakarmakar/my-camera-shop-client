@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:3000/all-products');
+                const response = await fetch('https://my-camera-shop-server.vercel.app/all-products');
                 const data = await response.json();
                 setProducts(data.products || []);
             } catch (error) {
@@ -104,8 +104,11 @@ const FeaturedProducts = () => {
                             alt={selectedProduct.title}
                             className="w-full h-64 object-cover mb-4"
                         />
-                        <p className="text-lg font-medium text-gray-600 mb-4">${selectedProduct.price}</p>
-                        <p className="text-base text-gray-700 mb-4">
+<p className="text-xl lg:text-xl font-extrabold text-blue-600 mb-4 flex items-center space-x-2">
+                                        <span>BDT</span>
+                                        <span className="text-2xl text-gradient-to-r from-yellow-400 to-red-500">{selectedProduct.price}</span>
+                                        <span className="text-sm text-gray-600">/unit</span>
+                                    </p>                        <p className="text-base text-gray-700 mb-4">
                             {selectedProduct.description
                                 ? selectedProduct.description.split(' ').slice(0, 50).join(' ') + (selectedProduct.description.split(' ').length > 100 ? '...' : '')
                                 : ''}

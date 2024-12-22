@@ -1,5 +1,6 @@
 import { FaPlaneDeparture } from 'react-icons/fa';
-import ContactForm from './COntactForm';
+import ContactForm from './ContactForm';
+
 
 const Footer = () => {
     return (
