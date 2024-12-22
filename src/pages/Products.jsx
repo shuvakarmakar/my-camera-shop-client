@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 import SearchBar from "../components/SearchBar";
 import SortByPrice from "../components/SortByPrice";
@@ -28,7 +27,7 @@ const Products = () => {
                 // console.log(response.data); // Log the response to inspect
                 // Set the state with the products, brands, and categories
                 setAllproducts(response.data.products || []);  // Use products from response
-                console.log(allproducts);
+                // console.log(allproducts);
                 setUniqueBrand(response.data.brands || []);    // Use brands from response
                 setUniqueCategory(response.data.categories || []); // Use categories from response
                 setTotalPage(Math.ceil(response.data.totalProducts / 9))

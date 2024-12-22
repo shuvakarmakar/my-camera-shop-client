@@ -50,7 +50,7 @@ const ProductCard = ({ product, isInWishlist, setLatestData }) => {
         <div className="max-w-sm mx-auto bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105 overflow-hidden flex flex-col">
             <figure>
                 <img
-                    src={product.imageURL || "placeholder.jpg"} 
+                    src={product.imageURL || "placeholder.jpg"}
                     alt="Product Image"
                     className="w-full h-60 object-cover rounded-t-lg transition-transform duration-300 ease-in-out"
                 />
@@ -80,23 +80,25 @@ const ProductCard = ({ product, isInWishlist, setLatestData }) => {
                 </p>
             </div>
 
-            {/* Button Section - Always at the bottom */}
-            <div className="p-6 mt-auto">
-                {isInWishlist ? (
-                    <button
-                        onClick={handleRemoveFromWishlist}
-                        className="w-full bg-red-500 text-white font-bold py-3 rounded-md transition-all duration-300 ease-in-out hover:bg-red-600 focus:outline-none">
-                        Remove from Wishlist
-                    </button>
-                ) : (
-                    <button
-                        onClick={handleWishlist}
-                        className="w-full bg-blue-500 text-white font-bold py-3 rounded-md transition-all duration-300 ease-in-out hover:bg-blue-600 focus:outline-none"
-                    >
-                        Add To Wishlist
-                    </button>
-                )}
-            </div>
+            {/* Button Section - Visible only for Buyers */}
+            {userData.role === "buyer" && (
+                <div className="p-6 mt-auto">
+                    {isInWishlist ? (
+                        <button
+                            onClick={handleRemoveFromWishlist}
+                            className="w-full bg-red-500 text-white font-bold py-3 rounded-md transition-all duration-300 ease-in-out hover:bg-red-600 focus:outline-none">
+                            Remove from Wishlist
+                        </button>
+                    ) : (
+                        <button
+                            onClick={handleWishlist}
+                            className="w-full bg-blue-500 text-white font-bold py-3 rounded-md transition-all duration-300 ease-in-out hover:bg-blue-600 focus:outline-none"
+                        >
+                            Add To Wishlist
+                        </button>
+                    )}
+                </div>
+            )}
         </div>
 
 

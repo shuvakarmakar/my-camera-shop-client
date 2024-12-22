@@ -45,12 +45,12 @@ const AdminRoutes = [
         title: "Manage Users",
         icon: <FaUsers />,
     },
-    {
-        id: 2,
-        route: "/dashboard/manage-products",
-        title: "Manage Products",
-        icon: <FaUserEdit />,
-    },
+    // {
+    //     id: 2,
+    //     route: "/dashboard/manage-products",
+    //     title: "Manage Products",
+    //     icon: <FaUserEdit />,
+    // },
 ];
 
 const Sidebar = () => {

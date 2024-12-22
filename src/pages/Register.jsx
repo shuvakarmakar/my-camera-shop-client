@@ -14,12 +14,13 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
+        const name = data.name;
         const email = data.email;
         const role = data.role;
         const status = role === "buyer" ? "approved" : "pending";
         const wishlist = [];
 
-        const userData = { email, role, status, wishlist }
+        const userData = { name, email, role, status, wishlist }
 
         createUser(data.email, data.password)
             .then(() => {

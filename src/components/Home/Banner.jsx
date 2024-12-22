@@ -1,34 +1,93 @@
+import { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
+import camera1 from '../../assets/Banner/alexander-wang-KjyrxSHwqTg-unsplash.jpg';
+import camera2 from '../../assets/Banner/mario-calvo-5tKtllqhx8U-unsplash.jpg';
+import camera3 from '../../assets/Banner/robert-shunev-mS1nlYbq1kA-unsplash.jpg';
 
 const Banner = () => {
-    const images = [
-        'https://img.freepik.com/free-photo/closeup-old-retro-camera-lens_155003-9926.jpg?t=st=1734692159~exp=1734695759~hmac=67bf4987edc6bf6a51e40083d7cec98af51955d0cf0f2a03071e3b4861aa704e&w=1380',
-        'https://img.freepik.com/free-photo/professional-camera-blurred_169016-10249.jpg?t=st=1734692161~exp=1734695761~hmac=11a572043830fd978205a0ae6044af02b865a6060742d2e86041047bc4d076da&w=1380',
-        'https://img.freepik.com/free-photo/high-angle-photo-camera-indoors-still-life_23-2150630966.jpg?t=st=1734692170~exp=1734695770~hmac=f5779bbc9e8fcc1a49642b88c783a75c7759d733ce3b02009228a4dad09bc597&w=1380',
-    ];
+    const images = [camera1, camera2, camera3];
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+        }, 3000); // Change slide every 3 seconds
+
+        return () => clearInterval(interval); // Clean up on unmount
+    }, [images.length]);
 
     return (
         <div className="relative w-full">
-            <div className="carousel w-full min-h-screen lg:h-96">
+            {/* Carousel Section */}
+            <div className="carousel w-full h-[50vh] lg:h-[90vh] overflow-hidden">
                 {images.map((src, index) => (
-                    <div key={index} id={`slide${index}`} className="carousel-item w-full">
-                        <img src={src} className="w-full object-cover" alt={`Slide ${index}`} />
+                    <div
+                        key={index}
+                        className={`carousel-item w-full h-full ${currentSlide === index ? 'block' : 'hidden'
+                            }`}
+                    >
+                        <img
+                            src={src}
+                            alt={`Slide ${index}`}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                 ))}
             </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-black bg-opacity-50">
-                <h1 className="text-4xl lg:text-6xl font-bold">Welcome to Camera Shop</h1>
+
+            {/* Overlay Section */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-gradient-to-b from-black via-transparent to-black px-4 text-center">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-wide drop-shadow-lg">
+                    Welcome to Camera Shop
+                </h1>
                 <TypeAnimation
                     sequence={[
-                        'Discover Amazing Cameras', 1000, 
-                        'Capture Your Best Moments', 1000,
-                        'Experience Quality', 1000,
+                        'Discover Amazing Cameras',
+                        1000,
+                        'Capture Your Best Moments',
+                        1000,
+                        'Experience Quality',
+                        1000,
                     ]}
                     speed={50}
                     wrapper="span"
                     repeat={Infinity}
-                    className="text-xl lg:text-2xl font-medium mt-4"
+                    className="text-lg md:text-xl lg:text-2xl font-medium mt-4 drop-shadow-lg"
                 />
+                <div className="mt-6 flex flex-col md:flex-row gap-4">
+                    <button
+                        onClick={() => {
+                            const targetSection = document.getElementById('features');
+                            if (targetSection) {
+                                targetSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold rounded-full shadow-lg"
+                    >
+                        Explore Now
+                    </button>
+                </div>
+
+            </div>
+
+            {/* Manual Navigation */}
+            <div className="absolute left-5 right-5 top-1/2 transform -translate-y-1/2 flex justify-between">
+                <button
+                    onClick={() =>
+                        setCurrentSlide(
+                            (currentSlide - 1 + images.length) % images.length
+                        )
+                    }
+                    className="btn btn-circle bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white"
+                >
+                    ❮
+                </button>
+                <button
+                    onClick={() => setCurrentSlide((currentSlide + 1) % images.length)}
+                    className="btn btn-circle bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white"
+                >
+                    ❯
+                </button>
             </div>
         </div>
     );
