@@ -131,7 +131,7 @@ const ManageUsers = () => {
     }
 
     return (
-        <div className="p-4">
+        <div className="lg:px-16 md:px-10 sm:px-10 lg:py-8 md:py-8 sm:py-10">
             <h1 className="text-2xl font-semibold mb-4">Manage Users</h1>
             <div className="overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-300">

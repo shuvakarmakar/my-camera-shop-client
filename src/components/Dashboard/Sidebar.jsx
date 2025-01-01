@@ -68,7 +68,7 @@ const Sidebar = () => {
             {/* Navigation Links */}
             <ul className="flex flex-col gap-2">
                 {/* Overview */}
-                <li className="p-2 flex items-center justify-center md:justify-start">
+                <li className="p-2 flex items-center justify-center md:justify-start border border-black rounded-md">
                     <NavLink
                         to="/dashboard/overview"
                         className="flex items-center gap-2 w-full text-center md:text-left text-sm lg:text-base"
@@ -84,7 +84,7 @@ const Sidebar = () => {
                 {routes.map((route) => (
                     <li
                         key={route.id}
-                        className="p-2 flex items-center justify-center md:justify-start"
+                        className="p-2 flex items-center justify-center md:justify-start border border-black rounded-md"
                     >
                         <NavLink
                             to={route.route}
@@ -99,7 +99,7 @@ const Sidebar = () => {
                 ))}
 
                 {/* Home */}
-                <li className="p-2 flex items-center justify-center md:justify-start">
+                <li className="p-2 flex items-center justify-center md:justify-start border border-black rounded-md">
                     <NavLink
                         to="/"
                         className="flex items-center gap-2 w-full text-center md:text-left text-sm lg:text-base"
@@ -113,7 +113,7 @@ const Sidebar = () => {
 
                 {/* Logout */}
                 <li
-                    className="p-2 flex items-center justify-center md:justify-start"
+                    className="p-2 flex items-center justify-center md:justify-start border border-black rounded-md"
                     onClick={logout}
                 >
                     <NavLink
