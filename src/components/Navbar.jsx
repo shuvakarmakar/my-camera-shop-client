@@ -6,7 +6,7 @@ const Navbar = () => {
     const { user } = useAuth();
 
     return (
-        <nav className="navbar bg-gray-800 shadow-lg relative">
+        <nav className="navbar bg-gray-800 shadow-lg">
             <div className="navbar-start flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown lg:hidden">
@@ -49,7 +49,7 @@ const Navbar = () => {
 
             {/* User/Authentication Section */}
             {user ? (
-                <div className="navbar-end">
+                <div className="navbar-end px-4">
                     <UserDropdown />
                 </div>
             ) : (
