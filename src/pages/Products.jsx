@@ -40,12 +40,12 @@ const Products = () => {
         };
 
         fetch();
-    }, [search, sort, brand, category, page]); 
+    }, [search, sort, brand, category, page]);
 
     const handleSearch = (e) => {
         e.preventDefault();
         setSearch(e.target.search.value);
-        e.target.search.value = ""; 
+        e.target.search.value = "";
     };
 
     const handleReset = () => {
@@ -64,18 +64,19 @@ const Products = () => {
     }
 
     return (
-        <div className="container mx-auto">
-            <h1 className="my-12 text-2xl font-semibold text-center">Products Page</h1>
+        <div className="container mx-auto my-6">
+            {/* <h1 className="my-12 text-2xl font-semibold text-center">Products</h1> */}
 
             {/* Sorting and Searching */}
-            <div className="flex justify-between items-center w-full mb-6">
+            <div className="flex flex-col md:flex-row justify-between items-center w-full mb-6 gap-4">
                 <SearchBar handleSearch={handleSearch} />
                 <SortByPrice setSort={setSort} />
             </div>
 
             {/* content */}
-            <div className="grid grid-cols-12 gap-2">
-                <div className="col-span-2">
+            <div className="grid grid-cols-12 gap-4">
+                {/* Filter Bar */}
+                <div className="col-span-12 md:col-span-3 lg:col-span-2">
                     <FilterBar
                         setCategory={setCategory}
                         setBrand={setBrand}
@@ -86,43 +87,47 @@ const Products = () => {
                 </div>
 
                 {/* Products */}
-                <div className="col-span-10">
-                    {
-                        loading ? (
-                            <Loading />
-                        ) : (
-                            <>
-                                {
-                                    allproducts.length === 0 ? (
-                                        <div className="w-full h-full flex items-center justify-center">
-                                            <h1 className="text-3xl font-bold">No Products Found</h1>
-                                        </div>
-                                    ) : (
-                                        <div className="min-h-screen grid grid-cols-3 gap-2">
-                                            {
-                                                allproducts.map(product => (
-                                                    <ProductCard product={product} key={product._id} />
-                                                ))
-                                            }
-                                        </div>
-                                    )
-                                }
-                            </>
-                        )
-                    }
+                <div className="col-span-12 md:col-span-9 lg:col-span-10">
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <>
+                            {allproducts.length === 0 ? (
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <h1 className="text-3xl font-bold">No Products Found</h1>
+                                </div>
+                            ) : (
+                                <div className="min-h-screen grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                                    {allproducts.map((product) => (
+                                        <ProductCard product={product} key={product._id} />
+                                    ))}
+                                </div>
+                            )}
+                        </>
+                    )}
+
                     {/* Pagination */}
-                    <div className="flex justify-center gap-2 my-8 items-center">
-                        <button className="p-2 border rounded-full border-black" onClick={() => handlePageChange(page - 1)}>
-                            <FaRegArrowAltCircleLeft></FaRegArrowAltCircleLeft>
+                    <div className="flex justify-center gap-4 my-8 items-center">
+                        <button
+                            className="p-2 border rounded-full border-black"
+                            onClick={() => handlePageChange(page - 1)}
+                        >
+                            <FaRegArrowAltCircleLeft />
                         </button>
-                        <p>Page {page} of {totalPage}</p>
-                        <button className="p-2 border rounded-full border-black" onClick={() => handlePageChange(page + 1)}>
-                            <FaRegArrowAltCircleRight></FaRegArrowAltCircleRight>
+                        <p>
+                            Page {page} of {totalPage}
+                        </p>
+                        <button
+                            className="p-2 border rounded-full border-black"
+                            onClick={() => handlePageChange(page + 1)}
+                        >
+                            <FaRegArrowAltCircleRight />
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
