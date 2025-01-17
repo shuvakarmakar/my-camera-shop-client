@@ -65,8 +65,6 @@ const Products = () => {
 
     return (
         <div className="container mx-auto my-6">
-            {/* <h1 className="my-12 text-2xl font-semibold text-center">Products</h1> */}
-
             {/* Sorting and Searching */}
             <div className="flex flex-col md:flex-row justify-between items-center w-full mb-6 gap-4">
                 <SearchBar handleSearch={handleSearch} />
